@@ -1,4 +1,57 @@
-body{
-    background-color: yellow;
-    margin: 20px;
+body {
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#main {
+    color: white;
+    font-family: 'Questrial', sans-serif;
+    text-align: center; /* Center text content inside main */
+}
+
+#first_container {
+    max-width: 50rem;
+    display: flex;
+    flex-direction: row-reverse; /* Reverse the order of the columns */
+    align-items: center; /* Center vertically */
+    column-gap: 5rem;
+}
+
+#selfie_container {
+    max-width: 50%; /* Adjust the maximum width as needed */
+    margin-right: 10%; /* Adjust the margin as needed */
+}
+
+#selfie {
+    max-width: 20rem;
+    opacity: 0.5;
+    position: relative;
+    z-index: -1;
+    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
+}
+
+#name_container {
+    text-align: center; /* Center the text content */
+}
+
+@media screen and (max-width: 800px) {
+    #first_container {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        max-width: 25rem;
+    }
+    
+    #selfie_container {
+        max-width: 10rem;
+        margin-right: 0; /* Remove margin */
+    }
+    
+    #selfie {
+        width: 100%; /* Ensure the image takes up the full width on smaller screens */
+        max-width: none; /* Remove the max-width constraint */
+        margin: 0; /* Remove margin */
+    }
 }
