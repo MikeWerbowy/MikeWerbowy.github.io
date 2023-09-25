@@ -1,3 +1,7 @@
+* {
+    margin: 0;
+    padding: 0;
+}
 /* Add these styles to your existing CSS */
 body {
     background-color: black;
@@ -129,23 +133,66 @@ h1{
     }
 }
 
-/* Apply styles to create a circular background with a white border */
-.icon-circle {
-    display: inline-block;
-    border: 2px solid white; /* White border */
-    border-radius: 50%; /* Make it circular */
-    padding: 10px; /* Adjust padding as needed */
-    background-color: transparent; /* Make the background transparent */
-}
 
-/* Center the icon within the circle */
-.icon-circle i {
-    font-size: 24px; /* Adjust the icon size as needed */
-    color: white; /* Set the icon color */
+.animation-area {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden; /* Hide vertical scrollbar */
+    position: absolute;
+    z-index: -1;
+    opacity: 0.5;
 }
-
-/* Add this CSS to your existing styles */
-#contact a {
-    color: white; /* Change the text color to white */
-    text-decoration: none; /* Remove underlines */
+.box-area {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.box-area li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    animation: animate 20s linear infinite;
+    left: -400px;
+}
+.box-area li:nth-child(1) {
+    width: 80px;
+    height: 80px;
+}
+.box-area li:nth-child(2) {
+    width: 30px;
+    height: 30px;
+    animation-duration: 10s;
+}
+.box-area li:nth-child(3) {
+    width: 100px;
+    height: 100px;
+}
+.box-area li:nth-child(4) {
+    width: 150px;
+    height: 150px;
+    animation-duration: 15s;
+}
+.box-area li:nth-child(5) {
+    width: 40px;
+    height: 40px;
+}
+.box-area li:nth-child(6) {
+    width: 110px;
+    height: 110px;
+}
+@keyframes animate {
+    0% {
+        left: -400px; /* Start from the left side */
+        opacity: 0.5;
+    }
+    100% {
+        left: 100%; /* Move to the right side */
+        opacity: 0;
+    }
 }

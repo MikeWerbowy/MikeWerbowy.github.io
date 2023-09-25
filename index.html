@@ -27,7 +27,18 @@
             </ul>
         </nav>
     </header>
+    
     <main id="main">
+        <div class="animation-area">
+            <ul class="box-area">
+                <li>0100011100111000111101000011111010</li>
+                <li>0101101010101001010101001101</li>
+                <li>0101010010101111111</li>
+                <li>111101110000001101010101001010100101101011</li>
+                <li>101100101010010100101010100101010100</li>
+                <li>0000011110101010011110000110101</li>
+            </ul>
+        </div>
         <div id="first_container">
             <div id="selfie_container">
                 <img id="selfie" src="tempPFP.jpeg" alt="Michael Werbowy selfie">
@@ -44,5 +55,20 @@
             <p><i class="icon-circle fas fa-envelope"></i> Email: <a href="mailto:werbowym@icloud.com">werbowym@icloud.com</a></p>
         </div>
     </footer> -->
+    <script>
+        // Function to generate a random number between min and max
+        function getRandom(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+
+        // Select all the li elements in the .box-area
+        const boxItems = document.querySelectorAll('.box-area li');
+
+        // Loop through each li element and set random top and animation-delay values
+        boxItems.forEach((item, index) => {
+            item.style.top = `${getRandom(0, 100)}%`; // Random top percentage value
+            item.style.animationDelay = `${getRandom(0, 15)}s`; // Random animation-delay value
+        });
+    </script>
 </body>
 </html>
