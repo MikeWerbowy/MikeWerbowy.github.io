@@ -1,3 +1,4 @@
+/* Add these styles to your existing CSS */
 body {
     background-color: black;
     display: flex;
@@ -7,10 +8,78 @@ body {
     margin: 0;
 }
 
+header {
+    background-color: black; /* Choose a background color for the banner */
+    padding: 10px 0; /* Add some padding to the top and bottom of the banner */
+    text-align: center; /* Center the content horizontally */
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+footer {
+    color: white;
+    background-color: black;
+    padding: 10px 0;
+    text-align: center; /* Center the content horizontally */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#logo_container {
+    /*display: flex;
+    align-items: center;*/
+
+    /*those ^^^^dont do anything lol*/
+}
+
+#logo {
+    max-width: 6rem;
+    height: auto;
+    margin-right: 33rem; /* Add margin to push it away from other content */
+}
+
+#nav_links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+#nav_links li {
+    font-family: 'Questrial', sans-serif;
+}
+
+#nav_links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+#nav_links a:hover {
+    color: #00aaff; /* Change the color on hover */
+}
+
 #main {
     color: white;
     font-family: 'Questrial', sans-serif;
     text-align: center; /* Center text content inside main */
+    padding-top: 60px; /* Add some space at the top for the header */
+    padding-bottom: 60px; /* Add some space at the bottom for the footer */
+
 }
 
 #first_container {
@@ -54,4 +123,28 @@ body {
         max-width: none; /* Remove the max-width constraint */
         margin: 0; /* Remove margin */
     }
+    #logo{
+        margin: 0;
+    }
+}
+
+/* Apply styles to create a circular background with a white border */
+.icon-circle {
+    display: inline-block;
+    border: 2px solid white; /* White border */
+    border-radius: 50%; /* Make it circular */
+    padding: 10px; /* Adjust padding as needed */
+    background-color: transparent; /* Make the background transparent */
+}
+
+/* Center the icon within the circle */
+.icon-circle i {
+    font-size: 24px; /* Adjust the icon size as needed */
+    color: white; /* Set the icon color */
+}
+
+/* Add this CSS to your existing styles */
+#contact a {
+    color: white; /* Change the text color to white */
+    text-decoration: none; /* Remove underlines */
 }
