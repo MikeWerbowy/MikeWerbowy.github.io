@@ -36,13 +36,6 @@ footer {
     width: 100%;
 }
 
-#logo_container {
-    /*display: flex;
-    align-items: center;*/
-
-    /*those ^^^^dont do anything lol*/
-}
-
 #logo {
     max-width: 6rem;
     height: auto;
