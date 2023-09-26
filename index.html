@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="main.css">
-
+    
     <!-- ICON IMPORTS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-
+    
     <!-- FONTS IMPORTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,6 +37,24 @@
                 <li>111101110000001101010101001010100101101011</li>
                 <li>101100101010010100101010100101010100</li>
                 <li>0000011110101010011110000110101</li>
+                <li>101100101010010100101010100101010100</li>
+                <li>0000011110101010011110000110101</li>
+                <li>0100011100111000111101000011111010</li>
+                <li>0101101010101001010101001101</li>
+                <li>0101010010101111111</li>
+                <li>111101110000001101010101001010100101101011</li>
+                <li>101100101010010100101010100101010100</li>
+                <li>0000011110101010011110000110101</li>
+                <li>101100101010010100101010100101010100</li>
+                <li>0000011110101010011110000110101</li>
+                <li>0100011100111000111101000011111010</li>
+                <li>0101101010101001010101001101</li>
+                <li>0101010010101111111</li>
+                <li>111101110000001101010101001010100101101011</li>
+                <li>101100101010010100101010100101010100</li>
+                <li>0000011110101010011110000110101</li>
+                <li>101100101010010100101010100101010100</li>
+                <li>0000011110101010011110000110101</li>
             </ul>
         </div>
         <div id="first_container">
@@ -46,29 +64,85 @@
             <div id="name_container">
                 <h1>Michael Werbowy</h1>
                 <p id="introParagraph">Hello! I'm Michael Werbowy, a Computer Science student from Mississauga, ON. Currently pursuing an Honours Bachelor's degree in Computer Science at Sheridan College, I'm on track to graduate in December 2025. Explore my portfolio and connect with me on LinkedIn to learn more about my tech journey.</p>
-           </div>
+            </div>
+        </div>
+        <div class="loading-bar">
+            <h2>Building. . .</h2>
+            <div class="progress"></div>
+        </div>
+        <!-- Move the code box outside the loading-bar div -->
+        <div class="code-box">
+            <code>fill this with meaningful code</code>
         </div>
     </main>
-    <!-- <footer id="contact">
-        <h2>Contact</h2>
-        <div class="contactLink">
-            <p><i class="icon-circle fas fa-envelope"></i> Email: <a href="mailto:werbowym@icloud.com">werbowym@icloud.com</a></p>
-        </div>
-    </footer> -->
-    <script>
-        // Function to generate a random number between min and max
-        function getRandom(min, max) {
-            return Math.random() * (max - min) + min;
-        }
 
+    
+    
+    
+    <script>
+        // Select the loading bar element
+        const progressBar = document.querySelector('.progress');
+        
         // Select all the li elements in the .box-area
         const boxItems = document.querySelectorAll('.box-area li');
-
-        // Loop through each li element and set random top and animation-delay values
+        
+        // Calculate the total width of the loading bar
+        const totalWidth = 100; // Set a fixed total width
+        
+        // Initialize progress
+        let completedLines = 0;
+        
+        // Loop through boxItems and update progress
         boxItems.forEach((item, index) => {
-            item.style.top = `${getRandom(0, 100)}%`; // Random top percentage value
-            item.style.animationDelay = `${getRandom(0, 15)}s`; // Random animation-delay value
+            item.style.top = `${index * (100 / boxItems.length)}%`; // Calculate the top position based on the number of items
+                
+            // Generate a random animation delay between 0s and 10s
+            const randomDelay = Math.random() * 10;
+            item.style.animationDelay = `${randomDelay}s`;
+                
+            // Create an interval to check the animation completion
+            const interval = setInterval(() => {
+                console.log("interval check");
+                const computedStyle = getComputedStyle(item);
+                const leftValue = parseFloat(computedStyle.getPropertyValue('left'));
+                    
+                // Check if the animation is completed based on the left position
+                if (leftValue >= 600) {
+                    console.log("left>=600");
+    
+                    clearInterval(interval); // Clear the interval
+                        
+                    // Check if all lines have passed the condition
+                    completedLines++;
+                        
+                    // Calculate the progress based on completedLines
+                    const progress = (completedLines / boxItems.length) * totalWidth;
+                        
+                    // Update the progress bar width
+                    progressBar.style.width = `${progress}%`;
+                        
+                    if (completedLines === boxItems.length) {
+                        console.log("completed===boxItems.length");
+    
+                        // When all lines are completed, update the progress bar to orange
+                        progressBar.style.backgroundColor = `#ff6600`;
+                            
+                        // Show the code box
+                        const codeBox = document.querySelector('.code-box');
+                        codeBox.style.display = 'block';
+                        codeBox.style.backgroundColor = `#ff6600`;
+                    }
+                }
+            }, 100);
         });
     </script>
+    
+    
+    
+    
+    
+    
+    
+    
 </body>
 </html>

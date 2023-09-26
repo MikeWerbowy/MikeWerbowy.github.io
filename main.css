@@ -1,8 +1,10 @@
+/* Reset and global styles */
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-/* Add these styles to your existing CSS */
+
 body {
     background-color: black;
     display: flex;
@@ -13,9 +15,9 @@ body {
 }
 
 header {
-    background-color: black; /* Choose a background color for the banner */
-    padding: 10px 0; /* Add some padding to the top and bottom of the banner */
-    text-align: center; /* Center the content horizontally */
+    background-color: black;
+    padding: 10px 0;
+    text-align: center;
     position: fixed;
     top: 0;
     width: 100%;
@@ -34,24 +36,24 @@ footer {
     color: white;
     background-color: black;
     padding: 10px 0;
-    text-align: center; /* Center the content horizontally */
+    text-align: center;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
-h1{
+h1 {
     font-size: 2.5rem;
 }
 
-#introParagraph{
+#introParagraph {
     line-height: 1.5rem;
 }
 
 #logo {
     max-width: 6rem;
     height: auto;
-    margin-right: 33rem; /* Add margin to push it away from other content */
+    margin-right: 33rem;
 }
 
 #nav_links {
@@ -75,29 +77,28 @@ h1{
 }
 
 #nav_links a:hover {
-    color: #00aaff; /* Change the color on hover */
+    color: #00aaff;
 }
 
 #main {
     color: white;
     font-family: 'Questrial', sans-serif;
-    text-align: center; /* Center text content inside main */
-    padding-top: 60px; /* Add some space at the top for the header */
-    padding-bottom: 60px; /* Add some space at the bottom for the footer */
-
+    text-align: center;
+    padding-top: 32rem;
+    padding-bottom: 60px;
 }
 
 #first_container {
     max-width: 50rem;
     display: flex;
-    flex-direction: row-reverse; /* Reverse the order of the columns */
-    align-items: center; /* Center vertically */
+    flex-direction: row-reverse;
+    align-items: center;
     column-gap: 5rem;
 }
 
 #selfie_container {
-    max-width: 50%; /* Adjust the maximum width as needed */
-    margin-right: 10%; /* Adjust the margin as needed */
+    max-width: 50%;
+    margin-right: 10%;
 }
 
 #selfie {
@@ -105,43 +106,67 @@ h1{
     opacity: 0.5;
     position: relative;
     z-index: -1;
-    transition: opacity 0.3s ease; /* Add a smooth transition for opacity */
+    transition: opacity 0.3s ease;
 }
 
 #name_container {
-    text-align: center; /* Center the text content */
+    text-align: center;
 }
 
 @media screen and (max-width: 800px) {
     #first_container {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
+        flex-direction: column;
         max-width: 25rem;
     }
-    
+
     #selfie_container {
         max-width: 10rem;
-        margin-right: 0; /* Remove margin */
+        margin-right: 0;
     }
-    
+
     #selfie {
-        width: 100%; /* Ensure the image takes up the full width on smaller screens */
-        max-width: none; /* Remove the max-width constraint */
-        margin: 0; /* Remove margin */
+        width: 100%;
+        max-width: none;
+        margin: 0;
     }
-    #logo{
+
+    #logo {
         margin: 0;
     }
 }
 
-
+/* Animation styles */
 .animation-area {
     width: 100%;
     height: 100vh;
-    overflow: hidden; /* Hide vertical scrollbar */
+    overflow: hidden;
     position: absolute;
     z-index: -1;
     opacity: 0.5;
 }
+
+.loading-bar {
+    margin-top: 10rem;
+    width: 100%;
+    height: 0.75rem; /* Adjust the height of the loading bar */
+    background-color: #00aaff; /* Change the loading bar color */
+    position: relative; /* Add this */
+}
+
+h2 {
+    padding: 2rem;
+}
+
+.progress {
+    width: 0;
+    height: 100%;
+    background-color: #ff6600; /* Change the progress color */
+    position: absolute; /* Add this */
+    top: 0; /* Add this */
+    left: 0; /* Add this */
+    /* z-index: 1; */
+}
+
 .box-area {
     color: white;
     position: absolute;
@@ -151,6 +176,7 @@ h1{
     height: 100%;
     overflow: hidden;
 }
+
 .box-area li {
     position: absolute;
     display: block;
@@ -160,39 +186,63 @@ h1{
     animation: animate 20s linear infinite;
     left: -400px;
 }
-.box-area li:nth-child(1) {
+
+/* .box-area li:nth-child(1) {
     width: 80px;
     height: 80px;
 }
+
 .box-area li:nth-child(2) {
     width: 30px;
     height: 30px;
     animation-duration: 10s;
 }
+
 .box-area li:nth-child(3) {
     width: 100px;
     height: 100px;
 }
+
 .box-area li:nth-child(4) {
     width: 150px;
     height: 150px;
     animation-duration: 15s;
 }
+
 .box-area li:nth-child(5) {
     width: 40px;
     height: 40px;
 }
+
 .box-area li:nth-child(6) {
     width: 110px;
     height: 110px;
-}
+} */
+
 @keyframes animate {
     0% {
-        left: -400px; /* Start from the left side */
-        opacity: 0.5;
+        left: -400px;
+        opacity: 0.3;
     }
     100% {
-        left: 100%; /* Move to the right side */
+        left: 100%;
         opacity: 0;
     }
+}
+
+/* Code box styles */
+.code-box {
+    background-color: blue;
+    width: 30rem;
+    height: 30rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3rem;
+    margin-top: 5rem;
+}
+
+.code-box code {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    white-space: pre-wrap;
 }
