@@ -4,7 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="main.css">
-    
+
+    <!-- SYNTAX HIGHLIGHT JS IMPORT-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+
     <!-- ICON IMPORTS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     
@@ -12,10 +16,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Monoton&family=Questrial&display=swap" rel="stylesheet">
+
+    <script src="script.js" defer></script>
     <title>Michael Werbowy</title>
 </head>
 <body>
-    <header>
+    <header id="main-header">
         <nav>
             <div id="logo_container">
                 <img id="logo" src="logo.png" alt="Michael Werbowy Logo">
@@ -31,118 +37,130 @@
     <main id="main">
         <div class="animation-area">
             <ul class="box-area">
-                <li>0100011100111000111101000011111010</li>
-                <li>0101101010101001010101001101</li>
-                <li>0101010010101111111</li>
-                <li>111101110000001101010101001010100101101011</li>
-                <li>101100101010010100101010100101010100</li>
-                <li>0000011110101010011110000110101</li>
-                <li>101100101010010100101010100101010100</li>
-                <li>0000011110101010011110000110101</li>
-                <li>0100011100111000111101000011111010</li>
-                <li>0101101010101001010101001101</li>
-                <li>0101010010101111111</li>
-                <li>111101110000001101010101001010100101101011</li>
-                <li>101100101010010100101010100101010100</li>
-                <li>0000011110101010011110000110101</li>
-                <li>101100101010010100101010100101010100</li>
-                <li>0000011110101010011110000110101</li>
-                <li>0100011100111000111101000011111010</li>
-                <li>0101101010101001010101001101</li>
-                <li>0101010010101111111</li>
-                <li>111101110000001101010101001010100101101011</li>
-                <li>101100101010010100101010100101010100</li>
-                <li>0000011110101010011110000110101</li>
-                <li>101100101010010100101010100101010100</li>
-                <li>0000011110101010011110000110101</li>
+                <li>const playBoard = document.querySelector(".play-board");</li>
+                <li>const scoreElement = document.querySelector(".score");</li>
+                <li>const highScoreElement = document.querySelector(".high-score");</li>
+                <li>const controls = document.querySelectorAll(".controls i");</li>
+                <li>let gameOver = false;</li>
+                <li>let foodX, foodY;</li>
+                <li>let snakeX = 5, snakeY = 5;</li>
+                <li>let velocityX = 0, velocityY = 0;</li>
+                <li>let snakeBody = [];</li>
+                <li>let setIntervalId;</li>
+                <li>let score = 0;</li>
+                <li>let highScore = localStorage.getItem("high-score") || 0;</li>
+                <li>highScoreElement.innerText = `High Score: ${highScore}`;</li>
+                <li>const updateFoodPosition = () => {</li>
+                <li>    foodX = Math.floor(Math.random() * 30) + 1;</li>
+                <li>    foodY = Math.floor(Math.random() * 30) + 1;</li>
+                <li>}</li>
+                <li>const handleGameOver = () => {</li>
+                <li>    clearInterval(setIntervalId);</li>
+                <li>    alert("Game Over! Press OK to replay...");</li>
+                <li>    location.reload();</li>
+                <li>}</li>
+                <li>const changeDirection = e => {</li>
+                <li>    if(e.key === "ArrowUp" && velocityY != 1) {</li>
+                <li>        velocityX = 0;</li>
+                <li>        velocityY = -1;</li>
+                <li>    } else if(e.key === "ArrowDown" && velocityY != -1) {</li>
+                <li>        velocityX = 0;</li>
+                <li>        velocityY = 1;</li>
+                <li>    } else if(e.key === "ArrowLeft" && velocityX != 1) {</li>
+                <li>        velocityX = -1;</li>
+                <li>        velocityY = 0;</li>
+                <li>    } else if(e.key === "ArrowRight" && velocityX != -1) {</li>
+                <li>        velocityX = 1;</li>
+                <li>        velocityY = 0;</li>
+                <li>    }</li>
+                <li>}</li>
+                <li>controls.forEach(button => button.addEventListener("click", () => changeDirection({ key: button.dataset.key })));</li>
+                <li>const initGame = () => {</li>
+                <li>    if(gameOver) return handleGameOver();</li>
+                <li>    let html = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;</li>
+                <li>    if(snakeX === foodX && snakeY === foodY) {</li>
+                <li>        updateFoodPosition();</li>
+                <li>        snakeBody.push([foodY, foodX]);</li>
+                <li>        score++;</li>
+                <li>        highScore = score >= highScore ? score : highScore;</li>
+                <li>        localStorage.setItem("high-score", highScore);</li>
+                <li>        scoreElement.innerText = `Score: ${score}`;</li>
+                <li>        highScoreElement.innerText = `High Score: ${highScore}`;</li>
+                <li>    }</li>
+                <li>    snakeX += velocityX;</li>
+                <li>    snakeY += velocityY;</li>
+                <li>    for (let i = snakeBody.length - 1; i > 0; i--) {</li>
+                <li>        snakeBody[i] = snakeBody[i - 1];</li>
+                <li>    }</li>
+                <li>    snakeBody[0] = [snakeX, snakeY];</li>
+                <li>    if(snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {</li>
+                <li>        return gameOver = true;</li>
+                <li>    }</li>
+                <li>    for (let i = 0; i < snakeBody.length; i++) {</li>
+                <li>        html += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;</li>
+                <li>        if (i !== 0 && snakeBody[0][1] === snakeBody[i][1] && snakeBody[0][0] === snakeBody[i][0]) {</li>
+                <li>            gameOver = true;</li>
+                <li>        }</li>
+                <li>    }</li>
+                <li>    playBoard.innerHTML = html;</li>
+                <li>}</li>
+                <li>updateFoodPosition();</li>
+                <li>setIntervalId = setInterval(initGame, 100);</li>
+                <li>document.addEventListener("keyup", changeDirection);</li>
             </ul>
         </div>
-        <div id="first_container">
-            <div id="selfie_container">
-                <img id="selfie" src="tempPFP.jpeg" alt="Michael Werbowy selfie">
-            </div>
-            <div id="name_container">
-                <h1>Michael Werbowy</h1>
-                <p id="introParagraph">Hello! I'm Michael Werbowy, a Computer Science student from Mississauga, ON. Currently pursuing an Honours Bachelor's degree in Computer Science at Sheridan College, I'm on track to graduate in December 2025. Explore my portfolio and connect with me on LinkedIn to learn more about my tech journey.</p>
-            </div>
-        </div>
-        <div class="loading-bar">
-            <h2>Building. . .</h2>
-            <div class="progress"></div>
-        </div>
-        <!-- Move the code box outside the loading-bar div -->
-        <div class="code-box">
-            <code>fill this with meaningful code</code>
+
+        <div class="container">
+            <section id="intro" class="container">
+                <div id="first_container">
+                    <div id="selfie_container">
+                        <img id="selfie" src="tempPFP.jpeg" alt="Michael Werbowy selfie">
+                    </div>
+                    <div id="name_container">
+                        <h1>Michael Werbowy</h1>
+                        <p id="introParagraph">Hello! I'm Michael Werbowy, a Computer Science student from Mississauga, ON. Currently pursuing an Honours Bachelor's degree in Computer Science at Sheridan College, I'm on track to graduate in December 2025. Explore my portfolio and connect with me on LinkedIn to learn more about my tech journey.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="loading" class="container">
+                <div class="loading-bar">
+                    <h2>Building. . .</h2>
+                    <div class="progress"></div>
+                </div>
+            </section>
+
+            <section id="code" class="container">
+                <div class="code-container">
+                    <div class="code-box">
+                        <div class="code-content">
+                            <!-- This fills up via JS in order of marked completed -->
+                            <code id="code-in-box"></code>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="game" class="container">
+                <div class="game-container">
+                    <div class="wrapper">
+                        <div class="game-details">
+                            <span class="score">Score: 0</span>
+                            <span class="high-score">High Score: 0</span>
+                        </div>
+                        <div class="play-board"></div>
+                        <div class="controls">
+                            <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long"></i>
+                            <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long"></i>
+                            <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long"></i>
+                            <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </div>
     </main>
 
-    
-    
-    
-    <script>
-        // Select the loading bar element
-        const progressBar = document.querySelector('.progress');
-        
-        // Select all the li elements in the .box-area
-        const boxItems = document.querySelectorAll('.box-area li');
-        
-        // Calculate the total width of the loading bar
-        const totalWidth = 100; // Set a fixed total width
-        
-        // Initialize progress
-        let completedLines = 0;
-        
-        // Loop through boxItems and update progress
-        boxItems.forEach((item, index) => {
-            item.style.top = `${index * (100 / boxItems.length)}%`; // Calculate the top position based on the number of items
-                
-            // Generate a random animation delay between 0s and 10s
-            const randomDelay = Math.random() * 10;
-            item.style.animationDelay = `${randomDelay}s`;
-                
-            // Create an interval to check the animation completion
-            const interval = setInterval(() => {
-                console.log("interval check");
-                const computedStyle = getComputedStyle(item);
-                const leftValue = parseFloat(computedStyle.getPropertyValue('left'));
-                    
-                // Check if the animation is completed based on the left position
-                if (leftValue >= 600) {
-                    console.log("left>=600");
-    
-                    clearInterval(interval); // Clear the interval
-                        
-                    // Check if all lines have passed the condition
-                    completedLines++;
-                        
-                    // Calculate the progress based on completedLines
-                    const progress = (completedLines / boxItems.length) * totalWidth;
-                        
-                    // Update the progress bar width
-                    progressBar.style.width = `${progress}%`;
-                        
-                    if (completedLines === boxItems.length) {
-                        console.log("completed===boxItems.length");
-    
-                        // When all lines are completed, update the progress bar to orange
-                        progressBar.style.backgroundColor = `#ff6600`;
-                            
-                        // Show the code box
-                        const codeBox = document.querySelector('.code-box');
-                        codeBox.style.display = 'block';
-                        codeBox.style.backgroundColor = `#ff6600`;
-                    }
-                }
-            }, 100);
-        });
-    </script>
-    
-    
-    
-    
-    
-    
-    
-    
 </body>
 </html>
