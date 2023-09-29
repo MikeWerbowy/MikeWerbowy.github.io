@@ -46,14 +46,13 @@ boxItems.forEach((item, index) => {
 
     // Create an interval to check the animation completion
     const interval = setInterval(() => {
-        console.log("interval check");
+        console.log("interval checked");
         const computedStyle = getComputedStyle(item);
         const leftValue = parseFloat(computedStyle.getPropertyValue('left'));
 
         // Check if the animation is completed based on the left position
         if (leftValue >= 600) {
-            console.log("left>=600");
-
+            console.log("leftValue >= 600");
             clearInterval(interval); // Clear the interval
 
             // Check if all lines have passed the condition
@@ -65,45 +64,67 @@ boxItems.forEach((item, index) => {
             // Update the progress bar width with a CSS transition
             progressBar.style.width = `${progress}%`;
 
-            // Push the completed item to the completedItems array
+            // Push the completed item to the boxItems array
             completedItems.push(item.cloneNode(true));
 
-            
             // Update the code box with the completed items
             const codeContent = document.querySelector('.code-content');
             codeContent.innerHTML = ''; // Clear the code content
-                            
+
+            // Rearrange the code based on their order in the box-area
             completedItems.forEach((completedItem, index) => {
                 const codeBlock = document.createElement('pre'); // Create a <pre> element
                 const codeElement = document.createElement('code'); // Create a <code> element
-                codeElement.textContent = completedItem.textContent; // Copy the code content
+                const codeText = completedItem.textContent.trim(); // Get the code text
+                codeElement.textContent = codeText; // Set the code text
                 codeBlock.appendChild(codeElement); // Append the <code> element to <pre>
                 codeContent.appendChild(codeBlock); // Append the <pre> element to the code content
-                
+
                 // Add the language for syntax highlighting (e.g., javascript)
                 codeElement.classList.add('language-javascript');
             });
-            
+
             // Initialize Highlight.js on the code content
             hljs.highlightAll();
-            
 
             if (completedLines === boxItems.length) {
-                console.log("completed===boxItems.length");
-
+                console.log("completedLines === boxItems.length");
                 // When all lines are completed, update the progress bar to orange
                 progressBar.style.backgroundColor = `#ff6600`;
 
                 // Show the code box
+                const codeBox = document.querySelector('.code-box');
                 codeBox.style.display = 'block';
-                codeBox.style.backgroundColor = `darkgray`;
+
+                // Add the code-animation class to trigger the animation
+                const codeContent = document.querySelector('.code-content');
+                codeContent.classList.add('code-animation');
+
+                // Clear the code content
+                codeContent.innerHTML = '';
+
+                // Rearrange the code based on their order in the box-area
+                boxItems.forEach((boxItem, index) => {
+                    const codeBlock = document.createElement('pre'); // Create a <pre> element
+                    const codeElement = document.createElement('code'); // Create a <code> element
+                    const codeText = boxItem.textContent.trim(); // Get the code text
+                    codeElement.textContent = codeText; // Set the code text
+                    codeBlock.appendChild(codeElement); // Append the <code> element to <pre>
+                    codeContent.appendChild(codeBlock); // Append the <pre> element to the code content
+
+                    // Add the language for syntax highlighting (e.g., javascript)
+                    codeElement.classList.add('language-javascript');
+                });
+
+                // Initialize Highlight.js on the code content
+                hljs.highlightAll();
             }
         }
     }, 100);
 });
 
-//snake game
 
+//snake game
 const playBoard = document.querySelector(".play-board");
 const scoreElement = document.querySelector(".score");
 const highScoreElement = document.querySelector(".high-score");

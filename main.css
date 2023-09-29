@@ -262,6 +262,27 @@ h2 {
     margin: -1rem;
 }
 
+/* Add this CSS for the code animation */
+.code-animation {
+    animation-name: codeAnimation;
+    animation-duration: 5s; /* Adjust the duration as needed */
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes codeAnimation {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%); /* Initial position outside the screen */
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0); /* Final position, aligned to the left */
+    }
+}
+
+
+
+
 
 /* Adjusted CSS for game container */
 .game-container {
