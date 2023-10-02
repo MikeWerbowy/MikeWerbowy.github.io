@@ -62,8 +62,8 @@ boxItems.forEach((item, index) => {
         const leftValue = parseFloat(computedStyle.getPropertyValue('left'));
 
         // Check if the animation is completed based on the left position
-        if (leftValue >= 600) {
-            console.log("leftValue >= 600");
+        if (leftValue >= 100) {
+            console.log("leftValue reached");
             clearInterval(interval); // Clear the interval
 
             // Check if all lines have passed the condition
