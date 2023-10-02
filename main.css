@@ -194,9 +194,10 @@ h1 {
     position: relative; /* Add this */
 }
 
-h2 {
-    padding: 2rem;
+#snake-h2 {
+    padding-bottom: 1rem;
 }
+
 
 .progress {
     width: 0;
@@ -209,37 +210,40 @@ h2 {
 
 }
 
+/* Updated CSS for the box-area */
 .box-area {
     color: white;
-    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw; /* Set width to 100vw to cover the whole screen */
     height: 100%;
     overflow: hidden;
 }
 
+/* Updated CSS for the box-area li */
 .box-area li {
     position: absolute;
     display: block;
     list-style: none;
     width: 25px;
     height: 25px;
-    animation: animate 20s linear infinite;
-    left: -400px;
+    animation: animateCodeScroll 20s linear infinite;
+    left: -250px; /* Start from the very left */
 }
 
 
-@keyframes animate {
+
+@keyframes animateCodeScroll {
     0% {
-        left: -400px;
-        opacity: 0.4;
+        right: 100%;
+        opacity: 0.15;
     }
     100% {
         left: 100%;
-        opacity: 0.1;
+        opacity: 0.15;
     }
 }
+
 
 .code-box {
     display: flex;
@@ -279,8 +283,6 @@ h2 {
         transform: translateX(0); /* Final position, aligned to the left */
     }
 }
-
-
 
 
 

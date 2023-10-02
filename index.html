@@ -33,82 +33,84 @@
             </ul>
         </nav>
     </header>
+
+    <div class="animation-area">
+        <ul class="box-area">
+            <li>const playBoard = document.querySelector(".play-board");</li>
+            <li>const scoreElement = document.querySelector(".score");</li>
+            <li>const highScoreElement = document.querySelector(".high-score");</li>
+            <li>const controls = document.querySelectorAll(".controls i");</li>
+            <li>let gameOver = false;</li>
+            <li>let foodX, foodY;</li>
+            <li>let snakeX = 5, snakeY = 5;</li>
+            <li>let velocityX = 0, velocityY = 0;</li>
+            <li>let snakeBody = [];</li>
+            <li>let setIntervalId;</li>
+            <li>let score = 0;</li>
+            <li>let highScore = localStorage.getItem("high-score") || 0;</li>
+            <li>highScoreElement.innerText = `High Score: ${highScore}`;</li>
+            <li>const updateFoodPosition = () => {</li>
+            <li>    foodX = Math.floor(Math.random() * 30) + 1;</li>
+            <li>    foodY = Math.floor(Math.random() * 30) + 1;</li>
+            <li>}</li>
+            <li>const handleGameOver = () => {</li>
+            <li>    clearInterval(setIntervalId);</li>
+            <li>    alert("Game Over! Press OK to replay...");</li>
+            <li>    location.reload();</li>
+            <li>}</li>
+            <li>const changeDirection = e => {</li>
+            <li>    if(e.key === "ArrowUp" && velocityY != 1) {</li>
+            <li>        velocityX = 0;</li>
+            <li>        velocityY = -1;</li>
+            <li>    } else if(e.key === "ArrowDown" && velocityY != -1) {</li>
+            <li>        velocityX = 0;</li>
+            <li>        velocityY = 1;</li>
+            <li>    } else if(e.key === "ArrowLeft" && velocityX != 1) {</li>
+            <li>        velocityX = -1;</li>
+            <li>        velocityY = 0;</li>
+            <li>    } else if(e.key === "ArrowRight" && velocityX != -1) {</li>
+            <li>        velocityX = 1;</li>
+            <li>        velocityY = 0;</li>
+            <li>    }</li>
+            <li>}</li>
+            <li>controls.forEach(button => button.addEventListener("click", () => changeDirection({ key: button.dataset.key })));</li>
+            <li>const initGame = () => {</li>
+            <li>    if(gameOver) return handleGameOver();</li>
+            <li>    let html = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;</li>
+            <li>    if(snakeX === foodX && snakeY === foodY) {</li>
+            <li>        updateFoodPosition();</li>
+            <li>        snakeBody.push([foodY, foodX]);</li>
+            <li>        score++;</li>
+            <li>        highScore = score >= highScore ? score : highScore;</li>
+            <li>        localStorage.setItem("high-score", highScore);</li>
+            <li>        scoreElement.innerText = `Score: ${score}`;</li>
+            <li>        highScoreElement.innerText = `High Score: ${highScore}`;</li>
+            <li>    }</li>
+            <li>    snakeX += velocityX;</li>
+            <li>    snakeY += velocityY;</li>
+            <li>    for (let i = snakeBody.length - 1; i > 0; i--) {</li>
+            <li>        snakeBody[i] = snakeBody[i - 1];</li>
+            <li>    }</li>
+            <li>    snakeBody[0] = [snakeX, snakeY];</li>
+            <li>    if(snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {</li>
+            <li>        return gameOver = true;</li>
+            <li>    }</li>
+            <li>    for (let i = 0; i < snakeBody.length; i++) {</li>
+            <li>        html += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;</li>
+            <li>        if (i !== 0 && snakeBody[0][1] === snakeBody[i][1] && snakeBody[0][0] === snakeBody[i][0]) {</li>
+            <li>            gameOver = true;</li>
+            <li>        }</li>
+            <li>    }</li>
+            <li>    playBoard.innerHTML = html;</li>
+            <li>}</li>
+            <li>updateFoodPosition();</li>
+            <li>setIntervalId = setInterval(initGame, 100);</li>
+            <li>document.addEventListener("keyup", changeDirection);</li>
+        </ul>
+    </div>
     
     <main id="main">
-        <div class="animation-area">
-            <ul class="box-area">
-                <li>const playBoard = document.querySelector(".play-board");</li>
-                <li>const scoreElement = document.querySelector(".score");</li>
-                <li>const highScoreElement = document.querySelector(".high-score");</li>
-                <li>const controls = document.querySelectorAll(".controls i");</li>
-                <li>let gameOver = false;</li>
-                <li>let foodX, foodY;</li>
-                <li>let snakeX = 5, snakeY = 5;</li>
-                <li>let velocityX = 0, velocityY = 0;</li>
-                <li>let snakeBody = [];</li>
-                <li>let setIntervalId;</li>
-                <li>let score = 0;</li>
-                <li>let highScore = localStorage.getItem("high-score") || 0;</li>
-                <li>highScoreElement.innerText = `High Score: ${highScore}`;</li>
-                <li>const updateFoodPosition = () => {</li>
-                <li>    foodX = Math.floor(Math.random() * 30) + 1;</li>
-                <li>    foodY = Math.floor(Math.random() * 30) + 1;</li>
-                <li>}</li>
-                <li>const handleGameOver = () => {</li>
-                <li>    clearInterval(setIntervalId);</li>
-                <li>    alert("Game Over! Press OK to replay...");</li>
-                <li>    location.reload();</li>
-                <li>}</li>
-                <li>const changeDirection = e => {</li>
-                <li>    if(e.key === "ArrowUp" && velocityY != 1) {</li>
-                <li>        velocityX = 0;</li>
-                <li>        velocityY = -1;</li>
-                <li>    } else if(e.key === "ArrowDown" && velocityY != -1) {</li>
-                <li>        velocityX = 0;</li>
-                <li>        velocityY = 1;</li>
-                <li>    } else if(e.key === "ArrowLeft" && velocityX != 1) {</li>
-                <li>        velocityX = -1;</li>
-                <li>        velocityY = 0;</li>
-                <li>    } else if(e.key === "ArrowRight" && velocityX != -1) {</li>
-                <li>        velocityX = 1;</li>
-                <li>        velocityY = 0;</li>
-                <li>    }</li>
-                <li>}</li>
-                <li>controls.forEach(button => button.addEventListener("click", () => changeDirection({ key: button.dataset.key })));</li>
-                <li>const initGame = () => {</li>
-                <li>    if(gameOver) return handleGameOver();</li>
-                <li>    let html = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`;</li>
-                <li>    if(snakeX === foodX && snakeY === foodY) {</li>
-                <li>        updateFoodPosition();</li>
-                <li>        snakeBody.push([foodY, foodX]);</li>
-                <li>        score++;</li>
-                <li>        highScore = score >= highScore ? score : highScore;</li>
-                <li>        localStorage.setItem("high-score", highScore);</li>
-                <li>        scoreElement.innerText = `Score: ${score}`;</li>
-                <li>        highScoreElement.innerText = `High Score: ${highScore}`;</li>
-                <li>    }</li>
-                <li>    snakeX += velocityX;</li>
-                <li>    snakeY += velocityY;</li>
-                <li>    for (let i = snakeBody.length - 1; i > 0; i--) {</li>
-                <li>        snakeBody[i] = snakeBody[i - 1];</li>
-                <li>    }</li>
-                <li>    snakeBody[0] = [snakeX, snakeY];</li>
-                <li>    if(snakeX <= 0 || snakeX > 30 || snakeY <= 0 || snakeY > 30) {</li>
-                <li>        return gameOver = true;</li>
-                <li>    }</li>
-                <li>    for (let i = 0; i < snakeBody.length; i++) {</li>
-                <li>        html += `<div class="head" style="grid-area: ${snakeBody[i][1]} / ${snakeBody[i][0]}"></div>`;</li>
-                <li>        if (i !== 0 && snakeBody[0][1] === snakeBody[i][1] && snakeBody[0][0] === snakeBody[i][0]) {</li>
-                <li>            gameOver = true;</li>
-                <li>        }</li>
-                <li>    }</li>
-                <li>    playBoard.innerHTML = html;</li>
-                <li>}</li>
-                <li>updateFoodPosition();</li>
-                <li>setIntervalId = setInterval(initGame, 100);</li>
-                <li>document.addEventListener("keyup", changeDirection);</li>
-            </ul>
-        </div>
+        
 
         <div class="container">
             <section id="intro" class="container">
