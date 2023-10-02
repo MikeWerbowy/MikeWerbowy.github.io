@@ -207,6 +207,15 @@ h1 {
     #game {
         background-color: #293447;
         color: #B8C6DC;
+        max-height: 40vh;
+    }
+
+    .game-container {
+        display: flex;
+        flex-direction: column; /* Change to column to center vertically */
+        align-items: center; /* Center horizontally */
+        margin-bottom: 5rem;
+        height: 50vh;
     }
 }
 
