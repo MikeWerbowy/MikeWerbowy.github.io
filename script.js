@@ -32,6 +32,17 @@ let completedLines = 0;
 // Create an array to track completed items in the order they finish
 const completedItems = [];
 
+// Flag to track if build is complete
+let isBuildComplete = false;
+
+// Function to update the loading text
+const updateLoadingText = () => {
+    if (completedLines === boxItems.length && !isBuildComplete) {
+        document.getElementById("loading-text").textContent = "Build Complete";
+        isBuildComplete = true;
+    }
+};
+
 // Loop through boxItems and update progress
 boxItems.forEach((item, index) => {
     item.style.top = `${index * (100 / boxItems.length)}%`; // Calculate the top position based on the number of items
@@ -88,12 +99,14 @@ boxItems.forEach((item, index) => {
             hljs.highlightAll();
 
             if (completedLines === boxItems.length) {
+                updateLoadingText(); //changes from Loading... to Build Complete
                 console.log("completedLines === boxItems.length");
                 // When all lines are completed, update the progress bar to orange
                 progressBar.style.backgroundColor = `#ff6600`;
 
                 // Show the code box
                 const codeBox = document.querySelector('.code-box');
+                // codeBox.style.display = 'block';
 
                 // Add the code-animation class to trigger the animation
                 const codeContent = document.querySelector('.code-content');
