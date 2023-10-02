@@ -61,6 +61,7 @@ nav {
 
 #code {
     background-color: rgba(255, 255, 255, 0.1);
+    padding-top: 7rem;
 }
 
 #game {
@@ -240,14 +241,12 @@ h2 {
 }
 
 .code-box {
-    margin-top: 5rem;
     display: flex;
     flex-grow: 1; /* Expand to take up available space */
     align-items: center;
     column-gap: 5rem;
     margin-bottom: 5rem;
     height: 50vh;
-    padding-top: 2rem;
 }
 
 .code-content {

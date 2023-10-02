@@ -94,7 +94,6 @@ boxItems.forEach((item, index) => {
 
                 // Show the code box
                 const codeBox = document.querySelector('.code-box');
-                codeBox.style.display = 'block';
 
                 // Add the code-animation class to trigger the animation
                 const codeContent = document.querySelector('.code-content');
