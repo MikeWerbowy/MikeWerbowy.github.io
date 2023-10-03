@@ -52,7 +52,7 @@ nav {
 
 #intro {
     background-color: rgba(0, 170, 255, 0.2);
-    margin-top: 55rem;
+    margin-top: 12rem;
 }
 
 #loading {
@@ -62,7 +62,6 @@ nav {
 
 #code {
     background-color: rgba(255, 255, 255, 0.1);
-    padding-top: 7rem;
 }
 
 #game {
@@ -292,8 +291,7 @@ h1 {
     flex-grow: 1; /* Expand to take up available space */
     align-items: center;
     column-gap: 5rem;
-    margin-bottom: 5rem;
-    height: 50vh;
+    height: 40rem; /* Adjust the height as needed */
 }
 
 .code-content {
@@ -333,7 +331,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50vh; /* Adjust the height as needed */
+    height: 40rem; /* Adjust the height as needed */
 }
 
 .wrapper {
@@ -400,4 +398,19 @@ h1 {
     padding: 15px 0;
     font-size: 1rem;
   }
+}
+
+.hidden {
+    display: none;
+}
+
+#showGameButton{
+    /* margin-top: 2rem; */
+    padding: 1rem;
+    position: absolute;
+    margin-left: 5rem;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.05); /*CHANGE THIS COLOR ASAP*/
+    border: 0;
+    border-radius: 10rem;
 }

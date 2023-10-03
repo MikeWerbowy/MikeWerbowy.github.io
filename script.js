@@ -17,6 +17,26 @@ window.addEventListener('scroll', function() {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    const showGameButton = document.getElementById("showGameButton");
+    const codeSection = document.getElementById("code");
+    const gameSection = document.getElementById("game");
+
+    showGameButton.addEventListener("click", function () {
+        // Toggle the visibility of the code and game sections
+        codeSection.classList.toggle("hidden");
+        gameSection.classList.toggle("hidden");
+
+        // Change the button text based on the section visibility
+        if (codeSection.classList.contains("hidden")) {
+            showGameButton.innerText = "Show Code";
+        } else {
+            showGameButton.innerText = "Show Game";
+        }
+    });
+});
+
+
 // Select the loading bar element
 const progressBar = document.querySelector('.progress');
 
@@ -38,7 +58,7 @@ let isBuildComplete = false;
 // Function to update the loading text
 const updateLoadingText = () => {
     if (completedLines === boxItems.length && !isBuildComplete) {
-        document.getElementById("loading-text").textContent = "Build Complete";
+        document.getElementById("loading-text").textContent = "Build Complete ";
         isBuildComplete = true;
     }
 };
