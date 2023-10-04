@@ -60,13 +60,14 @@ nav {
     background-color: rgba(0, 170, 255, 0.15);
     box-shadow: 0 20px 30px rgba(0, 170, 255, 0.4);
     margin-top: 26rem;
-    transition: transform 2s ease-in-out; /* Add a smooth transition effect */
+    /* transition: transform 2s ease-in-out; */
 }
+
 
 #loading {
     background-color: rgba(255, 102, 0, 0.1);
     box-shadow: 0 20px 40px rgba(255, 102, 0, 0.4);
-    transition: transform 2s ease-in-out; /* Add a smooth transition effect */
+    /* transition: transform 2s ease-in-out; */
 }
 
 #code {
@@ -423,4 +424,21 @@ h1 {
     background-color: rgba(255, 255, 255, 0.05); /*CHANGE THIS COLOR ASAP*/
     border: 0;
     border-radius: 10rem;
+}
+
+.startHidden {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(-100%);
+    transition: all 2s;
+}
+
+.show {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+.startHidden:nth-child(2){
+    transition-delay: 400ms;
 }
