@@ -18,6 +18,7 @@ body {
 
 /* Add styles for the header */
 #main-header {
+    z-index: 2;
     background-color: black;
     padding: 10px 0;
     text-align: center;
@@ -50,22 +51,31 @@ nav {
     z-index: 1;
 }
 
+#intro, #loading, #code, #game{
+    margin-bottom: 5rem;
+    border-radius: 3rem;
+}
+
 #intro {
-    background-color: rgba(0, 170, 255, 0.2);
-    margin-top: 12rem;
+    background-color: rgba(0, 170, 255, 0.15);
+    box-shadow: 0 20px 30px rgba(0, 170, 255, 0.4);
+    margin-top: 26rem;
+    transition: transform 2s ease-in-out; /* Add a smooth transition effect */
 }
 
 #loading {
-    background-color: rgba(255, 102, 0, 0.2);
-    /* max-height: 12rem; */
+    background-color: rgba(255, 102, 0, 0.1);
+    box-shadow: 0 20px 40px rgba(255, 102, 0, 0.4);
+    transition: transform 2s ease-in-out; /* Add a smooth transition effect */
 }
 
 #code {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 #game {
-    background-color: #293447;
+    background-color: rgba(41, 52, 71, 0.5);
+    /* background-color: #293447;  ORIGINAL BLUE COLOR*/
     color: #B8C6DC;
 }
 

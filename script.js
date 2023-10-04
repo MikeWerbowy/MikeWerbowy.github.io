@@ -17,6 +17,44 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// JavaScript to toggle intro visibility on scroll
+const intro = document.getElementById('intro');
+let isIntroVisible = true;
+
+window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    const scrollThreshold = intro.offsetHeight; 
+
+    if (scrollY > scrollThreshold && isIntroVisible) {
+        intro.style.transform = 'translateY(-100%)';
+        isIntroVisible = false;
+    } else if (scrollY <= scrollThreshold && !isIntroVisible) {
+        intro.style.transform = 'translateY(0)'; 
+        isIntroVisible = true;
+    }
+});
+
+// JavaScript to toggle intro visibility on scroll
+const loading = document.getElementById('loading');
+let isLoadingVisible = true;
+
+window.addEventListener('scroll', function() {
+    const scrollY = window.scrollY || window.pageYOffset;
+
+    const scrollThreshold = loading.offsetHeight*4.4;
+
+    if (scrollY > scrollThreshold && isLoadingVisible) {
+        loading.style.transform = 'translateY(-100%)';
+        isLoadingVisible = false;
+    } else if (scrollY <= scrollThreshold && !isLoadingVisible) {
+        loading.style.transform = 'translateY(0)'; 
+        isLoadingVisible = true;
+    }
+});
+
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const showGameButton = document.getElementById("showGameButton");
     const codeSection = document.getElementById("code");
