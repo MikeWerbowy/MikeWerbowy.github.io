@@ -123,6 +123,43 @@
                 </div>
             </section>
 
+            <section id="quick-cards" class="container startHidden">
+                <div class="box">
+                    <span></span>
+                    <div class="content">
+                        <h2>Technical Skills</h2>
+                        <p> Over a Dozen Languages and Software explored. 
+                            Technologies such as Git, ReactJS, Node.js, .NET & More
+                        </p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <span></span>
+                    <div class="content">
+                        <h2>Education</h2>
+                        <p>
+                            Honours Bachelor of Computer Science (Mobile Computing).
+                            Graduating in 2025.
+                        </p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+                <div class="box">
+                    <span></span>
+                    <div class="content">
+                        <h2>Relevant Projects</h2>
+                        <p>
+                            Developed an Educational Game in React Native, Waste Watchers.
+                        </p>
+                        <a href="#">Read More</a>
+                    </div>
+                </div>
+
+            </section>
+
+
+
             <section id="loading" class="container startHidden">
                 <h2 id="snake-h2">Self-Building JS Snake Game <button id="showGameButton">Show Game</button></h2>
                 <p id="loading-text">Loading . . .</p>
@@ -142,7 +179,11 @@
                 </div>
             </section>
 
-            <section id="game" class="container hidden">
+            <section id="game" class="container hidden startHidden">
+                <span id="game-over-span">
+                    <h2 id="game-over-text">GAME OVER!</h2>
+                    <button id="replay-btn">Replay</button>
+                </span>
                 <div class="game-container">
                     <div class="wrapper">
                         <div class="game-details">
@@ -151,14 +192,16 @@
                         </div>
                         <div class="play-board"></div>
                         <div class="controls">
-                            <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long"></i>
-                            <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long"></i>
-                            <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long"></i>
-                            <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long"></i>
-                        </div>
+                            <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long icon"></i>
+                            <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long icon"></i>
+                            <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long icon"></i>
+                            <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long icon"></i>
+                        </div>                        
                     </div>
                 </div>
             </section>
+
+
 
         </div>
     </main>
