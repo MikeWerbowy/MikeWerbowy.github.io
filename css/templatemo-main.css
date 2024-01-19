@@ -220,9 +220,7 @@ a:hover { color: #FF0; }
   color: #fff;
 }
 
-.baner-content {
-  margin-top: 15px;
-}
+
 .primary-button {
   margin-top: 5rem;
 }
@@ -554,7 +552,7 @@ footer em {
     font-size: 24px;
   }
 
-  .baner-content .primary-button {
+  .primary-button {
     margin-top: 15px;
   }
 
