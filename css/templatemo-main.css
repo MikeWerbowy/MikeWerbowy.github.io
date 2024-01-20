@@ -486,9 +486,9 @@ footer {
   padding: 70px 0px;
 }
 
-footer{
+/* footer{
   margin-bottom: 30px;
-}
+} */
 
 footer ul {
   padding: 0px;
@@ -806,4 +806,122 @@ body.lb-disable-scrolling {
 
 #linkedin-btn{
   letter-spacing: 0.3rem;
+}
+
+.emphasized-text{
+  color: orange;
+}
+
+.left-text {
+  width: 100%;
+}
+
+/**********************************/
+/**********************************/
+/* CSS FOR THE EXPERIENCE TIMELINE*/
+/**********************************/
+/**********************************/
+.timeline {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/*this is the timeline bar*/
+.timeline:before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1rem;
+  background: #e9ecef;
+  opacity: 0.3;
+  margin-left: -0.5rem;
+}
+
+.timeline-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.timeline-date {
+  flex: 0 0 50%;
+  max-width: 50%;
+  text-align: right;
+  padding-right: 50px;
+  padding-left: 0;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  position: relative;
+}
+
+.timeline-info {
+  flex: 1;
+  max-width: 50%;
+  color: white;
+  text-align: left;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-radius: 4px;
+}
+
+.timeline-info h4 {
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+/* Style for the dots */
+.timeline-block:before {
+  content: '';
+  position: absolute;
+  left: calc(50% - 5px);
+  background-color: white;
+  border: 3px solid #6c757d;
+  height: 10px; /* Dot size */
+  width: 10px; /* Dot size */
+  border-radius: 50%;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+/***************************************************/
+/***************************************************/
+/* Modifications for alternating experience layout */
+/***************************************************/
+/***************************************************/
+
+.timeline-block:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-block:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-block:nth-child(odd) .timeline-date {
+  text-align: right;
+  padding-right: 50px;
+  padding-left: 0;
+}
+
+.timeline-block:nth-child(even) .timeline-date {
+  text-align: left;
+  padding-left: 50px;
+  padding-right: 0;
+}
+
+.timeline-block:nth-child(odd) .timeline-info {
+  margin-left: 50px;
+  margin-right: 0;
+}
+
+.timeline-block:nth-child(even) .timeline-info {
+  margin-right: 50px;
+  margin-left: 0;
+  text-align: right;
 }
