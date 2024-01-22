@@ -540,6 +540,8 @@ footer p {
   }
 }
 @media (max-width: 1077px) {
+
+  
   #journey-title{
     color: white;
     font-weight: 800;
@@ -1235,10 +1237,21 @@ body.lb-disable-scrolling {
   display: flex;
   justify-content: center;
 }
+
+.demo-text{
+  margin-bottom: 0;
+  color: white;
+  padding: 40px 0 0;
+  letter-spacing: 0.1rem;
+  opacity: 0.5;
+  text-align: center;
+}
+
 .modal-img-extra {
   display: block;
-  margin: 5%;
   width: 15%;
+  margin-right: 10px;
+  margin-bottom: 10px;
   border-radius: 4px;
 
 }
@@ -1263,5 +1276,28 @@ body.lb-disable-scrolling {
   }
   .modal-content {
       width: 90%;
+  }
+
+  .featured-project img {
+    max-width: 100%; /* Make sure the image is responsive and fits the container */
+    height: 35rem; /* Maintain aspect ratio */
+    display: block; /* Display block to remove bottom space */
+    border: 3px solid white; /* Optional border */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .modal-img {
+      width: 70%;
+  }
+  .modal-content {
+      width: 90%;
+  }
+
+  .featured-project img {
+    max-width: 100%; /* Make sure the image is responsive and fits the container */
+    height: 20rem; /* Maintain aspect ratio */
+    display: block; /* Display block to remove bottom space */
+    border: 3px solid white; /* Optional border */
   }
 }
