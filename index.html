@@ -17,6 +17,30 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+
+        <script>
+            // Function to open the modal
+            function openModal() {
+                document.getElementById('myModal').style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling on the main page
+            }
+
+            // Function to close the modal
+            function closeModal() {
+                document.getElementById('myModal').style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling on the main page
+            }
+
+            // Close the modal if the user clicks anywhere outside of it
+            window.onclick = function(event) {
+                var modal = document.getElementById('myModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            }
+
+
+        </script>
     </head>
 <!--
 Vanilla Template
@@ -122,6 +146,32 @@ https://templatemo.com/tm-526-vanilla
     <div class="parallax-content projects-content" id="projects">
         <div class="container">
             <div class="row">
+                <!-- Featured Project -->
+                <div class="featured-project">
+                    <h4 class="latest-project-text">Latest Project: SheridanBNB</h4>
+                    <!-- Trigger/Open The Modal -->
+                    <img src="img/sheridanbnb.png" alt="Latest Project: SheridanBNB" style="cursor:pointer" onclick="openModal()">
+                    <div class="text-content">
+                        <!-- Any additional text content you want to add -->
+                    </div>
+                </div>
+                <!-- End Featured Project -->
+
+                <!-- Modal Structure (hidden by default) -->
+                <div id="myModal" class="modal-custom">
+                    <span class="close-custom" onclick="closeModal()">&times;</span>
+                    <h2 class="modal-title"><a href="https://github.com/werbowym-sheridan/SheridanBnb/tree/main">SheridanBNB</a></h2>
+                    <p class="modal-subtitle">Solved critical problem at Sheridan Traflagar Campus.</p>
+                    <img class="modal-img" src="img/sheridanbnb.png" alt="Arduino Board">
+                    <div class="modal-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+                    </div>
+                </div>
+
+
+                <di class="cycling-projects">
+                    <h4>Past Projects</h4>
+                </div>
                 <div class="col-md-12">
                     <div id="owl-testimonials" class="owl-carousel owl-theme">
                         <div class="item">
@@ -325,7 +375,7 @@ https://templatemo.com/tm-526-vanilla
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <p>&copy; 2024 Designed and Developed by Michael Werbowy</p>
+                    <p>&copy; 2024 Drank way too many iced capps while developing - Michael Werbowy</p>
                 </div>
             </div>
         </div>
