@@ -483,59 +483,18 @@ section {
 footer {
   text-align: center;
   background-color: #282b2f;
-  padding: 70px 0px;
+  padding: 20px 0px;
 }
 
-/* footer{
-  margin-bottom: 30px;
-} */
-
-footer ul {
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
-}
-
-footer ul li {
-  display: inline-block;
-  margin: 0px 4px;
-}
-
-footer ul li a {
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  text-align: center;
-  display: inline-block;
-  background-color: #ff7d27;
-  color: #282b2f;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: all 0.5s;
-  font-size: 17px;
-}
-
-footer ul li a:hover {
-  color: #282b2f;
-  background-color: #ff8e43;
-}
 
 footer p {
   font-size: 12px;
   color: #fff;
-  margin-top: 15px;
-  color: #fff;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   margin-bottom: 0px;
 }
 
-footer em {
-  color: #ff8e43;
-  font-weight: 600;
-  font-style: normal;
-}
-
-@media (max-width: 767px){
+@media (max-width: 1076px){
   
   .baner-content {
     padding-top: 30vh;
@@ -579,10 +538,149 @@ footer em {
     color: #fff;
     margin-bottom: 30px;
   }
+}
+@media (max-width: 1077px) {
+  #journey-title{
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
+    width: 21.5rem;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
 
+  .timeline {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  /*this is the timeline bar*/
+  .timeline:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1rem;
+    background: #e9ecef;
+    opacity: 0.3;
+    margin-left: 3.5rem;
+  }
+  
+  .timeline-block {
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-top: 10rem;
+  }
+  
+  .timeline-date {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: right;
+    padding-right: 50px;
+    padding-left: 0;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .timeline-info {
+    flex: 1;
+    max-width: 50%;
+    color: white;
+    text-align: left;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  
+  .timeline-info h4 {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  .timeline-icon img{
+    max-width: 15%;
+    position: relative;
+  }
+
+  .timeline-block img {
+    position: relative;
+    left: 5%; /* Center horizontally */
+    transform: translateX(-50%); /* Offset by half the width of the image to truly center it */
+    top: -80px; /* Adjust this value to move the image up */
+    border: 3px solid white;
+    height: auto; /* Maintain aspect ratio */
+    max-height: 15%; /* Adjust this value as needed */
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .timeline-content{
+    z-index: 100;
+    top: 50px;
+  }
+  
+  .experience-date, .experience-title{
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  
+  .timeline-content h4{
+    max-width: 25ch;
+  }
+  .timeline-content p{
+    min-width: 25ch;
+  }
+  .timeline-content {
+    padding: 0;
+    position: relative;
+    left: auto;
+    margin-left: 30%;
+  }
+  /***************************************************/
+  /***************************************************/
+  /* Modifications for alternating experience layout */
+  /***************************************************/
+  /***************************************************/
+  
+  .timeline-block:nth-child(odd) {
+    flex-direction: row;
+  }
+  
+  .timeline-block:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  
+  .timeline-block:nth-child(odd) .timeline-date {
+    text-align: right;
+    padding-right: 50px;
+    padding-left: 0;
+  }
+  
+  .timeline-block:nth-child(even) .timeline-date {
+    text-align: left;
+    padding-left: 50px;
+    padding-right: 0;
+  }
+  
+  .timeline-block:nth-child(odd) .timeline-info {
+    margin-left: 50px;
+    margin-right: 0;
+  }
+  
+  .timeline-block:nth-child(even) .timeline-info {
+    margin-right: 50px;
+    margin-left: 0;
+    text-align: right;
+  }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1077px) {
   .container {
     max-width: 1170px;
   }
@@ -816,112 +914,196 @@ body.lb-disable-scrolling {
   width: 100%;
 }
 
+/* Ensure the timeline container is positioned relatively */
+.timeline {
+  position: relative;
+}
+
+/* Add a pseudo-element to act as the timeline bar */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%; /* Center the line - adjust if needed */
+  top: 0;
+  bottom: 0;
+  width: 2px; /* The thickness of the timeline bar */
+  background: #e9ecef;
+  opacity: 0.3;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 1076px) {
+  .timeline::before {
+    left: 10%; /* Move the bar to the left within the mobile view */
+    transform: translateX(-10%);
+  }
+}
+
+
+
 /**********************************/
 /**********************************/
 /* CSS FOR THE EXPERIENCE TIMELINE*/
 /**********************************/
 /**********************************/
-.timeline {
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
+@media (min-width: 1077px) {
+  .timeline-icon img{
+    max-width: 110px;
+    max-height: 110px;
+    position: absolute;
+  }
+
+  #journey-title{
+    color: white;
+    font-weight: 900;
+    font-size: 3rem;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+  }
+
+  .timeline {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  /*this is the timeline bar*/
+  .timeline:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 0.4rem;
+    background: white;
+    opacity: 0.3;
+    margin-left: -0.5rem;
+  }
+  
+  .timeline-block {
+    display: flex;
+    color: white;
+    justify-content: space-around;
+    margin-top: 10rem;
+  }
+  
+  .timeline-date {
+    flex: 0 0 50%;
+    text-align: right;
+    color: white;
+    font-size: 16px;
+    position: relative;
+  }
+  
+  .timeline-info {
+    max-width: 50%;
+    color: white;
+    text-align: left;
+  }
+  
+  .timeline-info h4 {
+    margin-top: 0;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  
+  .timeline-block img {
+    position: absolute;
+    left: calc(50% - 6rem);
+    border: 3px solid white;
+    height: 25%;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  .timeline-content{
+    z-index: 100;
+    max-width: 100%;
+    padding-right: 200px;
+    padding-left: 200px;
+  }
+  
+  .timeline-content h4{
+    max-width: 25ch;
+  }
+
+  .experience-date, .experience-title{
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 20px;
+  }
+  /***************************************************/
+  /***************************************************/
+  /* Modifications for alternating experience layout */
+  /***************************************************/
+  /***************************************************/
+  
+  .timeline-block:nth-child(odd) {
+    flex-direction: row;
+    text-align: end;
+    padding-right: 40%;
+  }
+  
+  .timeline-block:nth-child(even) {
+    flex-direction: row-reverse;
+    text-align: start;
+    padding-left: 40%;
+  }
+  
+  .timeline-block:nth-child(odd) .timeline-date {
+    text-align: right;
+    padding-left: 0;
+  }
+  
+  .timeline-block:nth-child(even) .timeline-date {
+    text-align: left;
+    padding-right: 0;
+  }
+  
+  .timeline-block:nth-child(odd) .timeline-info {
+    margin-right: 0;
+  }
+  
+  .timeline-block:nth-child(even) .timeline-info {
+    margin-left: 0;
+    text-align: right;
+  }
 }
 
-/*this is the timeline bar*/
-.timeline:before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 1rem;
-  background: #e9ecef;
-  opacity: 0.3;
-  margin-left: -0.5rem;
+
+
+/***************************************************/
+/***************************************************/
+/**** CREATING FANCY ORANGE BUTTONS IN ABOUT ME ****/
+/***************************************************/
+/***************************************************/
+
+.left-text ul {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
 }
 
-.timeline-block {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 80px;
+.left-text ul li {
+  display: inline-block;
+  margin: 0px 4px;
 }
 
-.timeline-date {
-  flex: 0 0 50%;
-  max-width: 50%;
-  text-align: right;
-  padding-right: 50px;
-  padding-left: 0;
-  color: white;
-  font-weight: 600;
-  font-size: 16px;
-  position: relative;
-}
-
-.timeline-info {
-  flex: 1;
-  max-width: 50%;
-  color: white;
-  text-align: left;
-  margin-left: 50px;
-  margin-right: 50px;
-  border-radius: 4px;
-}
-
-.timeline-info h4 {
-  margin-top: 0;
-  font-weight: 700;
-  font-size: 20px;
-}
-
-/* Style for the dots */
-.timeline-block:before {
-  content: '';
-  position: absolute;
-  left: calc(50% - 5px);
-  background-color: white;
-  border: 3px solid #6c757d;
-  height: 10px; /* Dot size */
-  width: 10px; /* Dot size */
+.left-text ul li a {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  display: inline-block;
+  background-color: #ff7d27;
+  color: #282b2f;
   border-radius: 50%;
-  z-index: 1;
-  opacity: 0.8;
+  text-decoration: none;
+  transition: all 0.5s;
+  font-size: 17px;
 }
 
-/***************************************************/
-/***************************************************/
-/* Modifications for alternating experience layout */
-/***************************************************/
-/***************************************************/
-
-.timeline-block:nth-child(odd) {
-  flex-direction: row;
-}
-
-.timeline-block:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.timeline-block:nth-child(odd) .timeline-date {
-  text-align: right;
-  padding-right: 50px;
-  padding-left: 0;
-}
-
-.timeline-block:nth-child(even) .timeline-date {
-  text-align: left;
-  padding-left: 50px;
-  padding-right: 0;
-}
-
-.timeline-block:nth-child(odd) .timeline-info {
-  margin-left: 50px;
-  margin-right: 0;
-}
-
-.timeline-block:nth-child(even) .timeline-info {
-  margin-right: 50px;
-  margin-left: 0;
-  text-align: right;
+.left-text ul li a:hover {
+  color: #282b2f;
+  background-color: #ff8e43;
 }
