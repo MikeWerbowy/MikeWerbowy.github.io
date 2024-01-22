@@ -1231,9 +1231,28 @@ body.lb-disable-scrolling {
   border-radius: 4px;
 }
 
-.modal-text {
+.extra-imgs{
+  display: flex;
+  justify-content: center;
+}
+.modal-img-extra {
+  display: block;
+  margin: 5%;
+  width: 15%;
+  border-radius: 4px;
+
+}
+
+.modal-text h4{
   color: white;
-  padding: 30px 20%;
+  letter-spacing: 0.2rem;
+  font-weight: 600;
+  padding: 20px 15%;
+}
+
+.modal-text p {
+  color: white;
+  padding: 0 20%;
   letter-spacing: 0.1rem;
 }
 
