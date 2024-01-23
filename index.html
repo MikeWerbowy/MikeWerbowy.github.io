@@ -19,27 +19,82 @@
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 
         <script>
-            // Function to open the modal
-            function openModal() {
+            function openModal(title, subtitle, imgSrc, additionalText) {
+                var htmlContent = `
+                    <h2 class="modal-title">${title}</h2>
+                    <p class="modal-subtitle">${subtitle}</p>
+                    <img class="modal-img" src="${imgSrc}" alt="${title}">
+                    <div class="modal-text">${additionalText}</div>
+                `;
+                openModalWithContent(htmlContent);
+            }
+
+            function openModalWithContent(htmlContent) {
+                document.getElementById('modalContent').innerHTML = htmlContent;
                 document.getElementById('myModal').style.display = 'block';
                 document.body.style.overflow = 'hidden'; // Prevent scrolling on the main page
             }
 
-            // Function to close the modal
+            function openFeaturedProject() {
+                // HTML content for the featured project
+                var featuredProjectContent = `
+                    <h2 class="modal-title"><a href="https://github.com/werbowym-sheridan/SheridanBnb/tree/main">SheridanBNB</a></h2>
+                    <p class="modal-subtitle">Solved critical problem at Sheridan Trafalgar Campus.</p>
+                    <img class="modal-img" src="img/sheridanbnb.png" alt="SheridanBNB App Store Listing">
+                    <div class="modal-text">
+                        <p>
+                            Co-engineered an iOS app that searches for classroom availability across Trafalgar campus at Sheridan College.
+                        </p>
+                        <p>Created database from a JSON file containing over 11,000 lines of details for storing classroom information
+                            and their corresponding timeslots.</p>
+                    </div>
+                    <p class="demo-text">Live demo from my iPhone 11 Pro Max</p>
+                    <span class="extra-imgs">
+                        <img class="modal-img-extra" src="img/morebnb.PNG" alt="SheridanBNB App Store Listing">
+                        <img class="modal-img-extra" src="img/morebnb2.PNG" alt="SheridanBNB App Store Listing">
+                        <img class="modal-img-extra" src="img/morebnb3.PNG" alt="SheridanBNB App Store Listing">
+                        <img class="modal-img-extra" src="img/morebnb4.PNG" alt="SheridanBNB App Store Listing">
+                    </span>
+                `;
+                openModalWithContent(featuredProjectContent);
+            }
+
+            function openSpotted(){
+                // HTML content for the spotted project
+                var spottedProjectContent = `
+                    <h2 class="modal-title"><a href="https://github.com/werbowym-sheridan/Spotted">Spotted</a></h2>
+                    <p class="modal-subtitle">Quickest way to all your pet needs.</p>
+                    <div class="modal-text">
+                        <p>
+                            Developed an iOS app with WatchOS integration which enhances pet owners’ quality of life and their relationship with their companions.
+                        </p>
+                        <p>Implemented Google Places API and Apple MapKit for efficient routing and precise location identification.</p>
+                        <p>Provided customized search filters for users to optimize search results depending on each pet's details.</p>
+                        <p>Deployed Firebase as source database and optimized the user traffic by over 100%.</p>
+                    </div>
+                    <p class="demo-text">Live demo from my iPhone 11 Pro Max</p>
+                    <span class="extra-imgs">
+                        <img class="modal-img-extra" src="img/morespotted1.PNG" alt="Spotted App Demo">
+                        <img class="modal-img-extra" src="img/morespotted2.PNG" alt="Spotted App Demo">
+                        <img class="modal-img-extra" src="img/morespotted3.PNG" alt="Spotted App Demo">
+                        <img class="modal-img-extra" src="img/morespotted4.PNG" alt="Spotted App Demo">
+                        <img class="modal-img-extra" src="img/morespotted5.PNG" alt="Spotted App Demo">
+                    </span>
+                `;
+                openModalWithContent(spottedProjectContent);
+            }
+
             function closeModal() {
                 document.getElementById('myModal').style.display = 'none';
                 document.body.style.overflow = 'auto'; // Re-enable scrolling on the main page
             }
 
-            // Close the modal if the user clicks anywhere outside of it
+            // Event listener to close the modal if the user clicks outside of it
             window.onclick = function(event) {
-                var modal = document.getElementById('myModal');
-                if (event.target === modal) {
+                if (event.target === document.getElementById('myModal')) {
                     closeModal();
                 }
             }
-
-
         </script>
     </head>
 <!--
@@ -142,7 +197,13 @@ https://templatemo.com/tm-526-vanilla
         </div>
     </div>
 
-    
+    <!--
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@ EXPERIENCE SECTION @@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+        @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+    -->
     <div class="parallax-content projects-content" id="projects">
         <div class="container">
             <div class="row">
@@ -150,34 +211,28 @@ https://templatemo.com/tm-526-vanilla
                 <div class="featured-project">
                     <h4 class="latest-project-text">Latest Project: SheridanBNB</h4>
                     <!-- Trigger/Open The Modal -->
-                    <img src="img/sheridanbnb.png" alt="Latest Project: SheridanBNB" style="cursor:pointer" onclick="openModal()">
+                    <img src="img/sheridanbnb.png" alt="Latest Project: SheridanBNB" style="cursor:pointer" onclick="openFeaturedProject()">
                 </div>
                 <!-- End Featured Project -->
 
                 <!-- Modal Structure (hidden by default) -->
                 <div id="myModal" class="modal-custom">
                     <span class="close-custom" onclick="closeModal()">&times;</span>
-                    <h2 class="modal-title"><a href="https://github.com/werbowym-sheridan/SheridanBnb/tree/main">SheridanBNB</a></h2>
-                    <p class="modal-subtitle">Solved critical problem at Sheridan Traflagar Campus.</p>
-                    <img class="modal-img" src="img/sheridanbnb.png" alt="SheridanBNB App Store Listing">
-                    <div class="modal-text">
-                        <p>
-                            Co-engineered an iOS app that searchs for classroom availability across Trafalgar campus at Sheridan College.
-                        </p>
-                        <p>Created database from a JSON file containing over 11,000 lines of details for storing classroom information
-                            and their corresponding timeslots.</p>
+                    
+                    <!-- Dynamic content will be inserted below -->
+                    <div id="modalContent" class="modal-content-custom">
+                        <!-- This part is now dynamic and will be changed by JavaScript when opening the modal -->
                     </div>
-                    <p class="demo-text">Live demo from my iPhone 11 Pro Max</p>
-                    <span class="extra-imgs">
-                        <img class="modal-img-extra" src="img/morebnb.PNG" alt="SheridanBNB App Store Listing">
-                        <img class="modal-img-extra" src="img/morebnb2.PNG" alt="SheridanBNB App Store Listing">
-                        <img class="modal-img-extra" src="img/morebnb3.PNG" alt="SheridanBNB App Store Listing">
-                        <img class="modal-img-extra" src="img/morebnb4.PNG" alt="SheridanBNB App Store Listing">
-                    </span>
-
                 </div>
 
 
+                <!--
+                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    @@@@@@@ PAST PROJECTS SCROLL @@@@@@@
+                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+                -->
                 <di class="cycling-projects">
                     <h4>Past Projects</h4>
                 </div>
@@ -185,13 +240,14 @@ https://templatemo.com/tm-526-vanilla
                     <div id="owl-testimonials" class="owl-carousel owl-theme">
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="img/1st-big-item.jpg" data-lightbox="image-1"><img src="img/1st-item.jpg" alt=""></a>
+                                <!-- Trigger/Open The Modal with specific project details -->
+                                <img id="spotted-cover" src="img/spottedcover.PNG" alt="Spotted Project Image" style="cursor:pointer" onclick="openSpotted()">
                                 <div class="text-content">
-                                    <h4>Awesome Note Book</h4>
-                                    <span>$18.00</span>
+                                    <h4>Spotted</h4>
+                                    <span>iOS Project</span>
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
                         <div class="item">
                             <div class="testimonials-item">
                                 <a href="img/2nd-big-item.jpg" data-lightbox="image-1"><img src="img/2nd-item.jpg" alt=""></a>

@@ -293,7 +293,7 @@ h4, .h4 {
 
 
 .projects-content {
-  padding-top: 5vh;
+  /* padding-top: 5vh; */
   background-image: url(../img/3rd-section.jpg);
 }
 
@@ -305,24 +305,7 @@ h4, .h4 {
   margin: 15px;
 }
 
-.projects-content .item .text-content {
-  background-color: #fff;
-  text-align: center;
-  padding: 20px;
-}
 
-.projects-content .item .text-content h4 {
-  margin-top: 0px;
-  font-size: 19px;
-  font-weight: 600;
-}
-
-.projects-content .item .text-content span {
-  font-style: normal;
-  font-size: 17px;
-  font-weight: 700;
-  color: #ff7d27;
-}
 
 .owl-pagination {
   margin-top: 40px;
@@ -1300,4 +1283,39 @@ body.lb-disable-scrolling {
     display: block; /* Display block to remove bottom space */
     border: 3px solid white; /* Optional border */
   }
+}
+
+
+#spotted-modal-cover{
+  height: 300px;
+  width: 150px;
+}
+
+#spotted-cover{
+  height: 50%;
+  width: 45%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.projects-content .item .text-content {
+  /* background-color: #fff; */
+  text-align: center;
+  padding-top: 20px;
+}
+
+.projects-content .item .text-content h4 {
+  margin-top: 0px;
+  font-size: 19px;
+  font-weight: 600;
+  color: white;
+}
+
+.projects-content .item .text-content span {
+  font-style: normal;
+  font-size: 17px;
+  font-weight: 700;
+  color: #ff7d27;
 }
