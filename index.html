@@ -84,6 +84,32 @@
                 openModalWithContent(spottedProjectContent);
             }
 
+            function openLifeLiberator(){
+                // HTML content for the spotted project
+                var lifeLiberatorProjectContent = `
+                    <h2 class="modal-title"><a href="https://github.com/werbowym-sheridan/Life_Liberator">Life Liberator</a></h2>
+                    <p class="modal-subtitle">Find your Work-Life balance.</p>
+                    <div class="modal-text">
+                        <p>Designed an ASP.NET Core web application using SQL Server that enables tech professionals to better manage their schedule and use their available timeslots to create projects that can help hone their skills.</p>
+                        <p>Implemented an algorithm in C# that can automatically generate a project idea based on user’s programming proficiency level, and their work schedule.</p>
+                    </div>
+                    <p class="demo-text">Live demo from my MacBook</p>
+                    <span class="extra-imgs">
+                        <img class="lifelib-img-extra" src="img/lifelib1.png" alt="Life Liberator Web App Demo">
+                        <img class="lifelib-img-extra" src="img/lifelib2.png" alt="Life Liberator Web App Demo">
+                    </span>
+                    <span class="extra-imgs">
+                        <img class="lifelib-img-extra" src="img/lifelib5.png" alt="Life Liberator Web App Demo">
+                    </span>
+                    <span class="extra-imgs">
+                        <img class="lifelib-img-extra" src="img/lifelib3.png" alt="Life Liberator Web App Demo">
+                        <img class="lifelib-img-extra" src="img/lifelib4.png" alt="Life Liberator Web App Demo">
+                    </div>
+                    
+                `;
+                openModalWithContent(lifeLiberatorProjectContent);
+            }
+
             function closeModal() {
                 document.getElementById('myModal').style.display = 'none';
                 document.body.style.overflow = 'auto'; // Re-enable scrolling on the main page
@@ -200,7 +226,7 @@ https://templatemo.com/tm-526-vanilla
     <!--
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-        @@@@@@@@ EXPERIENCE SECTION @@@@@@@@
+        @@@@@@@@@ PROJECTS SECTION @@@@@@@@@
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     -->
@@ -250,10 +276,11 @@ https://templatemo.com/tm-526-vanilla
                         </div>                        
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="img/2nd-big-item.jpg" data-lightbox="image-1"><img src="img/2nd-item.jpg" alt=""></a>
+                                <!-- Trigger/Open The Modal with specific project details -->
+                                <img id="lifelib-cover" src="img/lifelib1.png" alt="Life Liberator Project Image" style="cursor:pointer" onclick="openLifeLiberator()">
                                 <div class="text-content">
-                                    <h4>Antique Decoration Photo</h4>
-                                    <span>$27.00</span>
+                                    <h4>Life Liberator</h4>
+                                    <span>ASP.NET Core Project</span>
                                 </div>
                             </div>
                         </div>
