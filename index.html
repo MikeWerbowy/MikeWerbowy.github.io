@@ -85,7 +85,7 @@
             }
 
             function openLifeLiberator(){
-                // HTML content for the spotted project
+                // HTML content for the life liberator project
                 var lifeLiberatorProjectContent = `
                     <h2 class="modal-title"><a href="https://github.com/werbowym-sheridan/Life_Liberator">Life Liberator</a></h2>
                     <p class="modal-subtitle">Find your Work-Life balance.</p>
@@ -104,10 +104,22 @@
                     <span class="extra-imgs">
                         <img class="lifelib-img-extra" src="img/lifelib3.png" alt="Life Liberator Web App Demo">
                         <img class="lifelib-img-extra" src="img/lifelib4.png" alt="Life Liberator Web App Demo">
-                    </div>
+                    </span>
                     
                 `;
                 openModalWithContent(lifeLiberatorProjectContent);
+            }
+
+            function openBeatBridge(){
+                    // HTML content for the beatbridge project
+                    var beatBridgeProjectContent = `
+                    <h2 class="modal-title"><a href="https://github.com/werbowym-sheridan/BeatBridge">BeatBridge</a></h2>
+                    <p class="modal-subtitle">Transfer Playlists Effortlessly.</p>
+                    <div class="modal-text">
+                        <p>COMING APRIL 2024</p>
+                    </div>
+                `;
+                openModalWithContent(beatBridgeProjectContent);
             }
 
             function closeModal() {
@@ -286,55 +298,11 @@ https://templatemo.com/tm-526-vanilla
                         </div>
                         <div class="item">
                             <div class="testimonials-item">
-                                <a href="img/3rd-big-item.jpg" data-lightbox="image-1"><img src="img/3rd-item.jpg" alt=""></a>
+                                <!-- Trigger/Open The Modal with specific project details -->
+                                <img id="comingapril2024-cover" src="img/comingapril2024.png" alt="BeatBridge Project Image" style="cursor:pointer" onclick="openBeatBridge()">
                                 <div class="text-content">
-                                    <h4>Work Hand Bag</h4>
-                                    <span>$36.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <a href="img/4th-big-item.jpg" data-lightbox="image-1"><img src="img/4th-item.jpg" alt=""></a>
-                                <div class="text-content">
-                                    <h4>Smart Watch</h4>
-                                    <span>$45.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <a href="img/5th-big-item.jpg" data-lightbox="image-1"><img src="img/5th-item.jpg" alt=""></a>
-                                <div class="text-content">
-                                    <h4>PC Tablet Draw</h4>
-                                    <span>$63.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <a href="img/6th-big-item.jpg" data-lightbox="image-1"><img src="img/6th-item.jpg" alt=""></a>
-                                <div class="text-content">
-                                    <h4>Healthy Milkshake</h4>
-                                    <span>$77.00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <a href="img/2nd-big-item.jpg" data-lightbox="image-1"><img src="img/2nd-item.jpg" alt=""></a>
-                                <div class="text-content">
-                                    <h4>Antique Decoration Photo</h4>
-                                    <span>$84.50</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="testimonials-item">
-                                <a href="img/1st-big-item.jpg" data-lightbox="image-1"><img src="img/1st-item.jpg" alt=""></a>
-                                <div class="text-content">
-                                    <h4>Awesome Notes Book</h4>
-                                    <span>$96.75</span>
+                                    <h4>BeatBridge</h4>
+                                    <span>iOS Project</span>
                                 </div>
                             </div>
                         </div>
