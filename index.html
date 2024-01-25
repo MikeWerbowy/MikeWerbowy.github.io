@@ -32,8 +32,14 @@
             function openModalWithContent(htmlContent) {
                 document.getElementById('modalContent').innerHTML = htmlContent;
                 document.getElementById('myModal').style.display = 'block';
-                document.body.style.overflow = 'hidden'; // Prevent scrolling on the main page
+                document.body.style.overflow = 'hidden';
+
+                // // Prevent click inside the modal from closing it
+                // document.getElementById('modalContent').addEventListener('click', function(event) {
+                //     event.stopPropagation();
+                // });
             }
+
 
             function openFeaturedProject() {
                 // HTML content for the featured project
@@ -126,13 +132,6 @@
                 document.getElementById('myModal').style.display = 'none';
                 document.body.style.overflow = 'auto'; // Re-enable scrolling on the main page
             }
-
-            // Event listener to close the modal if the user clicks outside of it
-            window.onclick = function(event) {
-                if (event.target === document.getElementById('myModal')) {
-                    closeModal();
-                }
-            }
         </script>
     </head>
 <!--
@@ -154,7 +153,6 @@ https://templatemo.com/tm-526-vanilla
             <li class="nav-item"><a class="nav-link" href="#about-me"><span>About Me</span></a></li>
             <li class="nav-item"><a class="nav-link" href="#projects"><span>Projects</span></a></li>
             <li class="nav-item"><a class="nav-link" href="#experience"><span>Experience</span></a></li>
-            <!-- <li class="nav-item"><a class="nav-link" href="#contact-us"><span>Contact Us</span></a></li> -->
         </ul>
     </div>
 
@@ -254,7 +252,7 @@ https://templatemo.com/tm-526-vanilla
                 <!-- End Featured Project -->
 
                 <!-- Modal Structure (hidden by default) -->
-                <div id="myModal" class="modal-custom">
+                <div id="myModal" class="modal-custom" onclick="closeModal()">
                     <span class="close-custom" onclick="closeModal()">&times;</span>
                     
                     <!-- Dynamic content will be inserted below -->
