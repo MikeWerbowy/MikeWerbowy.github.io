@@ -291,7 +291,7 @@ h4, .h4 {
   margin: 20px auto 15px auto;
 }
 
-.service-item-main{
+.service-item-main{ 
   border-radius: 50px;
   background-color: rgba(0, 0, 0, 0.5);
   padding: 25px 30px;
@@ -614,11 +614,6 @@ footer p {
     border-radius: 50%;
     z-index: 1;
   }
-  .timeline-content{
-    z-index: 100;
-    top: 50px;
-  }
-
   .experience-date, .experience-title{
     font-weight: bold;
     margin-bottom: 10px;
@@ -632,10 +627,18 @@ footer p {
     min-width: 25ch;
   }
   .timeline-content {
+    z-index: 100;
+    top: 50px;
     padding: 0;
     position: relative;
     left: auto;
     margin-left: 30%;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px 30px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
   }
   /***************************************************/
   /***************************************************/
@@ -1014,8 +1017,18 @@ body.lb-disable-scrolling {
   .timeline-content{
     z-index: 100;
     max-width: 100%;
-    padding-right: 200px;
-    padding-left: 200px;
+    padding-right: 190px;
+    padding-left: 180px;
+  }
+
+  .bg-gray{
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 25px 20px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 30px;
+    width: 100%;
   }
   
   .timeline-content h4{
