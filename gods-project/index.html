@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gates of Hades: A Digital Underworld</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+</head>
+<body>
+    <div class="starfield" id="starfield"></div>
+
+    <!-- Landing Page -->
+    <section id="entrance" class="section active">
+        <div class="gates">
+            <h1 class="title">The Gates of Hades</h1>
+            <p class="subtitle">Enter the Realm of "The One Who Receives Many"</p>
+            <div class="gate-doors" id="gateDoors">
+                <div class="door door-left"></div>
+                <div class="door door-right"></div>
+                <div class="gate-handle" id="gateHandle">
+                    <span>Touch to Enter</span>
+                </div>
+            </div>
+            <p class="inscription">
+                "Among the immortals I shall not be an unfitting husband, you know,<br>
+                since I am father Zeus' own brother."
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Underworld -->
+    <section id="underworld" class="section">
+        <nav class="underworld-nav">
+            <button class="nav-btn" data-section="throne-room">The Throne Room</button>
+            <button class="nav-btn" data-section="realm-of-souls">Realm of Souls</button>
+            <button class="nav-btn" data-section="persephone-cycle">Persephone's Return</button>
+            <button class="nav-btn" data-section="offering-chamber">Offering Chamber</button>
+            <button class="nav-btn" data-section="bridge-realms">Bridge of Realms</button>
+        </nav>
+
+        <!-- Throne Room -->
+        <div id="throne-room" class="underworld-section active">
+            <h2>The Throne of Hades</h2>
+            <div class="throne-container">
+                <div class="throne">
+                    <div class="crown"></div>
+                    <div class="right-arm"></div>
+                </div>
+                <div class="throne-text">
+                    <h3>Lord of the Dead, King of Shadows</h3>
+                    <p>Here sits Hades, brother to Zeus and Poseidon, ruler of the vast underworld realm. Through Zeus' divine plan, he became husband to Persephone, uniting the spheres of existence and creating the eternal cycle that governs both mortal agriculture and the cosmic order.</p>
+                    <div class="power-display">
+                        <h4>His Sacred Honors (Timai):</h4>
+                        <ul>
+                            <li class="power-item" data-power="ruler">
+                                Ruler of the Underworld
+                                <div class="power-explanation">After the defeat of the Titans, I drew lots with my brothers and received the gloomy realm of the underworld as my domain.</div>
+                            </li>
+                            <li class="power-item" data-power="master">
+                                Master of the Earth's Wealth
+                                <div class="power-explanation">I control the hidden riches beneath the earth, including fertile soil and precious metals like gold and silver.</div>
+                            </li>
+                            <li class="power-item" data-power="enforcer">
+                                Enforcer of the Laws of Death
+                                <div class="power-explanation">I ensure that the souls of the departed remain in my realm and that no one leaves the underworld without permission.</div>
+                            </li>
+                            <li class="power-item" data-power="honors">
+                                Granted Great Honors
+                                <div class="power-explanation">As brother to Zeus, I bestow the greatest timai among the immortals to those who serve in my realm.</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="throne-speak" class="throne-speech"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Realm of Souls -->
+        <div id="realm-of-souls" class="underworld-section">
+            <h2>The Realm Where Many Dwell</h2>
+            <div class="souls-container">
+                <div class="soul-stream">
+                    <div class="soul clickable-soul"></div>
+                    <div class="soul clickable-soul"></div>
+                    <div class="soul clickable-soul"></div>
+                    <div class="soul clickable-soul"></div>
+                    <div class="soul clickable-soul"></div>
+                </div>
+                <div class="realm-text">
+                    <h3>The One Who Receives Many</h3>
+                    <p>This epithet reveals Hades' fundamental nature - not as a bringer of death, but as the inevitable destination of all mortal souls. His realm exists in perfect separation from the upper world, maintaining the cosmic order that distinguishes immortal gods from mortal humans.</p>
+                    <p>Before Persephone's marriage, no communication existed between the upper realms and this shadowy domain. The underworld remained isolated, inaccessible even to the gods themselves.</p>
+                    <div class="soul-counter">
+                        <p>Souls Received: <span id="soulCount">5</span></p>
+                        <button id="addSoulBtn">Guide Another Soul to Hades</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Persephone's Cycle -->
+        <div id="persephone-cycle" class="underworld-section">
+            <h2>The Sacred Marriage & the Pomegranate</h2>
+            <div class="cycle-container">
+                <div class="season-wheel" id="seasonWheel">
+                    <div class="season spring" data-season="spring">
+                        <span>Spring<br>Return</span>
+                    </div>
+                    <div class="season summer" data-season="summer">
+                        <span>Summer<br>Growth</span>
+                    </div>
+                    <div class="season autumn" data-season="autumn">
+                        <span>Autumn<br>Harvest</span>
+                    </div>
+                    <div class="season winter" data-season="winter">
+                        <span>Winter<br>Descent</span>
+                    </div>
+                    <div class="pomegranate" id="pomegranate">
+                        <span>🌰</span>
+                    </div>
+                </div>
+                <div class="cycle-text">
+                    <h3>The Honey-Sweet Seed of Transformation</h3>
+                    <p>Through cunning and foresight, Hades gave Persephone the pomegranate seed in secret, ensuring her return to the underworld. This act was not mere trickery, but cosmic wisdom - establishing the eternal cycle that bridges the realms of the living and the dead.</p>
+                    <p>One third of the year she reigns as Queen of the Underworld, two thirds she dwells among the immortals above. This division mirrors the tripartite cosmos: Sky, Earth, and Underworld, with Persephone as the sacred link between all realms.</p>
+                    <p id="seasonText">Persephone returns from the underworld, bringing life and growth to the earth. Demeter rejoices at her daughter's presence.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bridge of Realms -->
+        <div id="bridge-realms" class="underworld-section">
+            <h2>The Bridge Between Worlds</h2>
+            <div class="bridge-container">
+                <div class="realm-diagram">
+                    <div class="realm olympus clickable-realm" data-realm="olympus">
+                        <h4>Olympus</h4>
+                        <p>Realm of the Immortals</p>
+                        <div class="realm-details">Home of Zeus and the gods, where divine power originates</div>
+                    </div>
+                    <div class="bridge-line">
+                        <div class="persephone-icon clickable-bridge">👸</div>
+                    </div>
+                    <div class="realm earth clickable-realm" data-realm="earth">
+                        <h4>Earth</h4>
+                        <p>Realm of Mortals</p>
+                        <div class="realm-details">Where agriculture blooms under Demeter's influence</div>
+                    </div>
+                    <div class="bridge-line">
+                        <div class="hades-icon clickable-bridge">👑</div>
+                    </div>
+                    <div class="realm underworld clickable-realm" data-realm="underworld">
+                        <h4>Underworld</h4>
+                        <p>Realm of the Dead</p>
+                        <div class="realm-details">Hades' shadowy domain where all souls eventually dwell</div>
+                    </div>
+                </div>
+                <div class="bridge-text">
+                    <h3>Zeus' Plan Fulfilled Through Sacred Union</h3>
+                    <p>The marriage of Hades and Persephone was no ordinary divine wedding, but a cosmic necessity orchestrated by Zeus to resolve the fundamental problem of the separated realms. Through this union, Hades became not merely the isolated lord of the dead, but the crucial bridge-builder of the cosmos.</p>
+                    <p>As the only daughter of Zeus and Demeter, Persephone transmitted her paternal lineage through marriage to her uncle, creating an alliance that opened the previously inaccessible pathways between the upper and lower worlds.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Offering Chamber -->
+        <div id="offering-chamber" class="underworld-section">
+            <h2>Chamber of Digital Offerings</h2>
+            <div class="offering-container">
+                <div class="altar">
+                    <div id="lottie-fire" class="fire-animation"></div>
+                </div>
+                <div class="offering-form">
+                    <h3>Leave Your Tribute to the Lord of the Underworld</h3>
+                    <p>As mortals once brought offerings to appease the gods, leave your digital tribute to Hades, acknowledging his power over transformation, death, and rebirth.</p>
+                    <form id="offeringForm">
+                        <label>Type of Offering:</label>
+                        <div class="offering-buttons">
+                            <button type="button" class="offering-btn active" data-offering="gratitude">Words of Gratitude</button>
+                            <button type="button" class="offering-btn" data-offering="wisdom">Seeking Wisdom</button>
+                            <button type="button" class="offering-btn" data-offering="transformation">Prayer for Transformation</button>
+                            <button type="button" class="offering-btn" data-offering="remembrance">Honoring the Departed</button>
+                        </div>
+
+                        <label for="offering-text">Your Offering:</label>
+                        <textarea id="offering-text" name="offering-text" placeholder="Speak your words to the ruler of the shadows..."></textarea>
+
+                        <button type="submit">Present Offering to Hades</button>
+                    </form>
+
+                    <div id="offering-response" class="offering-response"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
